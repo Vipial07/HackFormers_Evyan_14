@@ -21,19 +21,19 @@ export default {
             voter_address: '',
             data: reactive({
                 name: '',
-                fathername: '',
+                lastname: '',
                 phone_number: '',
-                email: '',
+                aadhar_card: '',
                 age: '',
                 authorised: '',
                 voted: ''
             }),
             vote: {
                 name: '',
-                fathername: '',
+                lastname: '',
                 phone: '',
                 age: '',
-                email: '',
+                aadhar_card: '',
 
             }
         }
@@ -56,14 +56,14 @@ export default {
                 this.voter_store.addVoteraddress({ voter_address: voter_address.voter_address })
                 var response = await this.contract_store.contract.voters(this.voter_store.voter_address)
                 console.log(`Voters from Dashboard`)
-
+console.log(response)
                 if (response) {
                     this.voter_store.addVoters({
                         name: response.name,
-                        fathername: response.fathername,
+                        lastname: response.lastname,
                         age: response.age,
                         phone_number: response.phone_number,
-                        email: response.email,
+                        aadhar_card: response.aadhar_card,
                         authorised: response.authorised,
                         voted: response.voted
                     })
@@ -81,16 +81,16 @@ export default {
         },
         async updateVoter12() {
             try {
-                if (this.vote.name != '' && this.vote.fathername != '' && this.vote.age != '' && this.vote.phone_number != '' && this.vote.email != '') {
-                    let response1 = await this.contract_store.contract.addVoter(this.voter_store.voter_address, this.vote.name, this.vote.fathername, this.vote.phone_number, this.vote.email, this.vote.age);
+                if (this.vote.name != '' && this.vote.lastname != '' && this.vote.age != '' && this.vote.phone_number != '' && this.vote.aadhar_card != '') {
+                    let response1 = await this.contract_store.contract.addVoter(this.voter_store.voter_address, this.vote.name, this.vote.lastname, this.vote.phone_number, this.vote.aadhar_card, this.vote.age);
                     var response = await this.contract_store.contract.voters(this.voter_store.voter_address)
                     alert(response)
                     this.voter_store.addVoters({
                         name: response.name,
-                        fathername: response.fathername,
+                        lastname: response.lastname,
                         age: response.age,
                         phone_number: response.phone_number,
-                        email: response.email,
+                        aadhar_card: response.aadhar_card,
                         authorised: response.authorised,
                         voted: response.voted
                     })
@@ -150,10 +150,10 @@ export default {
                     <label class="label" v-if="this.show">{{ this.voter_store.Voters.name }} </label>
                 </div>
                 <div class="register-input">
-                    <label>Father Name </label>
-                    <input v-if="!this.show" v-model="this.vote.fathername" placeholder="Father Name" type="text">
-                    <label class="label" v-if="this.show">{{ this.voter_store.Voters.fathername }} </label>
-                </div>
+                    <label>Last Name </label>
+                    <input v-if="!this.show" v-model="this.vote.lastname" placeholder="Father Name" type="text">
+                    <label class="label" v-if="this.show">{{ this.voter_store.Voters.lastname }} </label>
+                </div>  
                 <div class="register-input">
                     <label>Age</label>
                     <input v-if="!this.show" v-model="this.vote.age" placeholder="Age" type="text">
@@ -165,9 +165,9 @@ export default {
                     <label class="label" v-if="this.show">{{ this.voter_store.Voters.phone_number }}</label>
                 </div>
                 <div class="register-input">
-                    <label>Email Address</label>
-                    <input v-if="!this.show" v-model="this.vote.email" placeholder="Email Address" type="text">
-                    <label class="label" v-if="this.show">{{ this.voter_store.Voters.email }}</label>
+                    <label>aadhar_card Address</label>
+                    <input v-if="!this.show" v-model="this.vote.aadhar_card" placeholder="aadhar_card Address" type="text">
+                    <label class="label" v-if="this.show">{{ this.voter_store.Voters.aadhar_card }}</label>
                 </div>
                 <div class="register-input">
                     <label>Authorised</label>
@@ -179,7 +179,7 @@ export default {
                     <label class="label">{{ this.voter_store.Voters.voted }}</label>
 
                 </div>
-                <button @click="updateVoter12">Updated</button>
+               
             </div>
         </div>
     </div>

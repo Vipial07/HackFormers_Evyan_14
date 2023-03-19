@@ -2,7 +2,7 @@
   "name": "e-voting",
   "version": "0.0.0",
   "private": true,
-  "module": "type",
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -10,6 +10,12 @@
   },
   "dependencies": {
     "ethers": "^5.7.2",
+    "ipfs": "^0.66.0",
+    "ipfs-api": "^26.1.2",
+    "ipfs-client": "^0.10.0",
+    "ipfs-core": "^0.18.0",
+    "ipfs-http-client": "^60.0.0",
+    "ipfs-mini": "^1.1.5",
     "js-cookie": "^3.0.1",
     "pinia": "^2.0.28",
     "pinia-plugin-persistedstate": "^3.0.2",

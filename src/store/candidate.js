@@ -13,6 +13,7 @@ export const candidateStore = defineStore(
                     numvotes: 0,
                     id:0,
                 },
+                election:'0x0000000000000000000000000000000000000000',
                 candidates: [],
                 candidateslength: ''
             }

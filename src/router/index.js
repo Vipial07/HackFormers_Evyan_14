@@ -5,6 +5,8 @@ import Dashboard from '../views/Dashboard.vue'
 import Election from '../views/Election.vue'
 import Candidate from '../views/Candidate.vue'
 import Admin from '../views/Admin.vue'
+import Login from "../views/Login.vue"
+import ElectionAdmin from "../views/ElectionAdmin.vue"
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -14,9 +16,19 @@ const router = createRouter({
       component: Home
     },
     {
+      path: '/electionadmin',
+      name: 'ElectionAdmin',
+      component: ElectionAdmin
+    },
+    {
       path: '/register',
       name: 'Register',
       component: Register
+    },
+    {
+      path: '/login',
+      name: 'Login',
+      component: Login
     },
     {
       path: '/admin/candidate',

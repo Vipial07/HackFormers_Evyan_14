@@ -1,4 +1,5 @@
-export const ABI = [
+export const ABI =
+[
 	{
 		"inputs": [
 			{
@@ -36,7 +37,7 @@ export const ABI = [
 			},
 			{
 				"internalType": "string",
-				"name": "_fathername",
+				"name": "_lastname",
 				"type": "string"
 			},
 			{
@@ -46,7 +47,7 @@ export const ABI = [
 			},
 			{
 				"internalType": "string",
-				"name": "_email_address",
+				"name": "_aadhar_card",
 				"type": "string"
 			},
 			{
@@ -256,7 +257,7 @@ export const ABI = [
 			},
 			{
 				"internalType": "string",
-				"name": "fathername",
+				"name": "lastname",
 				"type": "string"
 			},
 			{
@@ -266,7 +267,7 @@ export const ABI = [
 			},
 			{
 				"internalType": "string",
-				"name": "email",
+				"name": "aadhar_card",
 				"type": "string"
 			},
 			{

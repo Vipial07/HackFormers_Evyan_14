@@ -5,7 +5,7 @@ import { voterStore } from '../store/voter.js';
 import { candidateStore } from '../store/candidate.js'
 import { contractStore } from '../store/contractStore.js'
 export default {
-    name: 'Election',
+    name: 'ElectionAdmin',
     setup() {
         const voter_store = voterStore()
         const contract_store = contractStore()
@@ -20,7 +20,8 @@ export default {
             candidates: '',
             total_votes: '',
             length: '',
-            authorize:''
+            authorize:'',
+            electionstart:''
         }
     },
 
@@ -29,6 +30,10 @@ export default {
     },
 
     methods: {
+        async getElectionStarted(){
+            this.electionstart=await this.contract_store.owner()
+            
+        },
         async authorizeVoter1() {
             try {
                 let response = await this.contract_store.contract.authorizeVoter1(this.voter_store.voter_address)
@@ -73,7 +78,6 @@ export default {
         refresh() {
             this.getTotalVotes1()
             this.first()
-            console.log(this.candidate_store.candidates)
             window.location.reload()
         },
         async Vote1(id) {
@@ -116,6 +120,7 @@ export default {
         // console.log()
          this.first()
          this.getTotalVotes1()
+         console.log(this.candidate_store.candidates)
     },
     updated(){
         
@@ -153,7 +158,7 @@ export default {
                         <label>Name:{{ candidate.name }}</label>
                         <label>Age:{{ candidate.age }}</label>
                         <label>Party:{{ candidate.party }}</label>
-                     
+                        <label>Number of Votes:{{ candidate.numvotes }}</label>
                     </div>
                     <Button @click="this.Vote1(candidate.id)" text="vote"></Button>
                 </div>

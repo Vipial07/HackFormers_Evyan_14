@@ -8,9 +8,9 @@ export const voterStore = defineStore(
                 Voters: {
                     name: '',
                     age: '',
-                    fathername: '',
+                    lastname: '',
                     phone_number: '',
-                    email: '',
+                    aadhar_card: '',
                     authorised: '',
                     voted: '',
                 },
@@ -28,9 +28,9 @@ export const voterStore = defineStore(
             addVoters(payload) {
                 this.Voters.name = payload.name;
                 this.Voters.age = payload.age
-                this.Voters.fathername = payload.fathername
+                this.Voters.lastname = payload.lastname
                 this.Voters.phone_number = payload.phone_number
-                this.Voters.email = payload.email
+                this.Voters.aadhar_card = payload.aadhar_card
                 this.Voters.authorised = payload.authorised
                 this.Voters.voted = payload.voted
             },

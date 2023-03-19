@@ -26,10 +26,16 @@ export default {
     beforeMount() {
         backend.loader();
     },
-    mounted() {
+    async mounted() {
         console.log(`Contract address ${this.contract_store.contract.address}`)
         console.log(`Voter address ${this.voter_store.voter_address}`)
         this.voter_store.$reset()
+        try {
+        let res=await this.contract_store.contract.electionName()
+        console.log(res)
+      } catch (e) {
+        console.log(e);
+      }
     },
 
 }
@@ -38,7 +44,6 @@ export default {
 <template>
     <div class="home">
         <Header />
-
     </div>
 </template>
 <style scoped>
